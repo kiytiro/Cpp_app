@@ -18,7 +18,7 @@ pipeline {
 
         stage('----call sonarqube------') {
             steps {
-                sh "cd /devOPS/sonar-scanning-examples-master_Jenkins/sonarqube-scanner-build-wrapper-linux"
+//                sh "cd /devOPS/sonar-scanning-examples-master_Jenkins/sonarqube-scanner-build-wrapper-linux"
                 sh "/home/labuser/devOPS/sonar-scanner-3.2.0.1227-linux/bin/sonar-scanner"
 
             }
