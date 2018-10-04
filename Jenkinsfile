@@ -29,6 +29,7 @@ pipeline {
                def sonar_url = props['sonar.host.url']
                echo "Sonar URL:${sonar_url}"
                echo "Environment:${WORKSPACE}"
+               sh "python3 /home/labuser/pythonScripts/CheckSonarQubeQualityGate.py ${WORKSPACE} ${sonar_url}"
             }
             }
         }
