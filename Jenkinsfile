@@ -7,7 +7,7 @@ pipeline {
         BUILD_WRAPPER = '/home/labuser/devOPS/build-wrapper-3.10/linux-x86-64'
     }
     stages {
-            }
+            
         stage('----compile the C++ code------') {
             steps {
      //           sh "cd /home/labuser/devOPS/sonar-scanning-examples-master_Jenkins/sonarqube-scanner-build-wrapper-linux"
