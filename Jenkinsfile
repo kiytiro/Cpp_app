@@ -4,6 +4,7 @@ pipeline {
     environment {
         SONAR_PATH = '/home/labuser/devOPS/sonar-scanner-3.2.0.1227-linux/bin'
         BUILD_WRAPPER = '/home/labuser/devOPS/build-wrapper-3.10/linux-x86-64'
+        PYTHON_SCRIPT_PATH = '/home/labuser/pythonScripts'
     }
     stages {
 
@@ -25,14 +26,14 @@ pipeline {
         }
         stage('----call CheckQualityGate python script------') {
             steps {
-               script {
+           //    script {
                 def props = readProperties file:'/home/labuser/devOPS/sonar-scanner-3.2.0.1227-linux/conf/sonar-scanner.properties'
                 env.SONAR_HOST_URL = props['sonar.host.url']
                 echo "Sonar URL:${SONAR_HOST_URL}"
                 echo "Environment:${WORKSPACE}"
 //         sh "python3 /home/labuser/pythonScripts/CheckSonarQubeQualityGate.py ${WORKSPACE} ${SONAR_HOST_URL}"
-              }
-              sh "python3 /home/labuser/pythonScripts/CheckSonarQubeQualityGate.py ${WORKSPACE} ${SONAR_HOST_URL}"
+          //    }
+              sh "python3 ${PYTHON_SCRIPT_PATH}/CheckSonarQubeQualityGate.py ${WORKSPACE} ${SONAR_HOST_URL}"
 
             }
         }
