@@ -7,7 +7,7 @@ pipeline {
     environment {
         props = readProperties file:'/home/labuser/devOPS/sonar-scanner-3.2.0.1227-linux/conf/sonar-scanner.properties'
 
-        SONAR_HOST_URL =  ${sonar+url}
+        SONAR_HOST_URL = "${sonar+url}"
         SONAR_PATH = '/home/labuser/devOPS/sonar-scanner-3.2.0.1227-linux/bin'
         SOURCE_CODE = '/home/labuser/devOPS/sonar-scanning-examples-master_Jenkins/sonarqube-scanner-build-wrapper-linux'
         BUILD_WRAPPER = '/home/labuser/devOPS/build-wrapper-3.10/linux-x86-64'
