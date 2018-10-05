@@ -26,17 +26,14 @@ pipeline {
             steps {
                script {
                 def props = readProperties file:'/home/labuser/devOPS/sonar-scanner-3.2.0.1227-linux/conf/sonar-scanner.properties'
-               def sonar_url = props['sonar.host.url']
-               echo "Sonar URL:${sonar_url}"
-               echo "Environment:${WORKSPACE}"
-               sh "python3 /home/labuser/pythonScripts/CheckSonarQubeQualityGate.py ${WORKSPACE} ${sonar_url}"
-            }
+                def sonar_url = props['sonar.host.url']
+                echo "Sonar URL:${sonar_url}"
+                echo "Environment:${WORKSPACE}"
+              //  sh "python3 /home/labuser/pythonScripts/CheckSonarQubeQualityGate.py ${WORKSPACE} ${sonar_url}"
+              }
+              sh "python3 /home/labuser/pythonScripts/CheckSonarQubeQualityGate.py ${WORKSPACE} ${sonar_url}"
+
             }
         }
-
-
-
     }
-
 }
-
