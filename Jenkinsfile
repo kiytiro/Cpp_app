@@ -11,16 +11,6 @@ pipeline {
     }
     stages {
 
-        stage('----get the sonarqube host url------') {
-            steps {
-  script {
-//              def props = readProperties file:'/home/labuser/devOPS/sonar-scanner-3.2.0.1227-linux/conf/sonar-scanner.properties'
-//            def sonar_url =  props['sonar.host.url']
-}
-
-            }
-        }
-
             
         stage('----compile the C++ code------') {
             steps {
