@@ -12,14 +12,14 @@ pipeline {
             steps {
 //                sh "/home/labuser/devOPS/build-wrapper-3.10/linux-x86-64/build-wrapper-linux-x86-64 --out-dir bw-outputs ./build.sh"
 
-              sh "${BUILD_WRAPPER}/linux-x86-64/build-wrapper-linux-x86-64 --out-dir bw-outputs ./build.sh"
+              sh "${BUILD_WRAPPER}/build-wrapper-linux-x86-64 --out-dir bw-outputs ./build.sh"
             }
         }
 
         stage('----call sonarqube------') {
             steps {
 //                sh "/home/labuser/devOPS/sonar-scanner-3.2.0.1227-linux/bin/sonar-scanner"
-sh "${SONAR_PATH}/bin/sonar-scanner"
+                  sh "${SONAR_PATH}/bin/sonar-scanner"
 
             }
         }
