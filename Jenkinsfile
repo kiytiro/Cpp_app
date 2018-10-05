@@ -19,7 +19,7 @@ pipeline {
         stage('----call sonarqube------') {
             steps {
 //                sh "/home/labuser/devOPS/sonar-scanner-3.2.0.1227-linux/bin/sonar-scanner"
-                  sh "${SONAR_PATH}/bin/sonar-scanner"
+                  sh "${SONAR_PATH}/sonar-scanner"
 
             }
         }
