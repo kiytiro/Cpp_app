@@ -14,6 +14,7 @@ pipeline {
 
         stage('----get the sonarqube host url------') {
             steps {
+  script {
               def props = readProperties file:'/home/labuser/devOPS/sonar-scanner-3.2.0.1227-linux/conf/sonar-scanner.properties'
             def sonar_url =  props['sonar.host.url']
     environment {
@@ -25,7 +26,7 @@ pipeline {
         SOURCE_CODE = '/home/labuser/devOPS/sonar-scanning-examples-master_Jenkins/sonarqube-scanner-build-wrapper-linux'
         BUILD_WRAPPER = '/home/labuser/devOPS/build-wrapper-3.10/linux-x86-64'
     }
-
+}
 
             }
         }
