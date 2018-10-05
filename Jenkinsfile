@@ -34,11 +34,12 @@ sh "${SONAR_PATH}/bin/sonar-scanner"
                 def SONAR_HOST_URL = props['sonar.host.url']
                 echo "Sonar URL:${SONAR_HOST_URL}"
                 echo "Environment:${WORKSPACE}"
-              //  sh "python3 /home/labuser/pythonScripts/CheckSonarQubeQualityGate.py ${WORKSPACE} ${sonar_url}"
+         sh "python3 /home/labuser/pythonScripts/CheckSonarQubeQualityGate.py ${WORKSPACE} ${SONAR_HOST_URL}"
 //              }
-              sh "python3 /home/labuser/pythonScripts/CheckSonarQubeQualityGate.py ${WORKSPACE} ${SONAR_HOST_URL}"
+//              sh "python3 /home/labuser/pythonScripts/CheckSonarQubeQualityGate.py ${WORKSPACE} ${SONAR_HOST_URL}"
 
             }
         }
     }
 }
+
