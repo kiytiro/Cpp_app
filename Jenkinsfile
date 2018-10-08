@@ -29,11 +29,11 @@ pipeline {
                 def SONAR_HOST_URL = props['sonar.host.url']
 env.TEST = props['sonar.host.url']
 env.SONAR_HOST_URL1 =  props['sonar.host.url']
-                echo "Sonar URL:${SONAR_HOST_URL1}"
+                echo "Sonar URL:${TEST}"
                 echo "Environment:${WORKSPACE}"
              //   sh "python3 ${PYTHON_SCRIPT_PATH}/CheckSonarQubeQualityGate.py ${WORKSPACE} ${SONAR_HOST_URL}"
               }
-     sh "python3 ${PYTHON_SCRIPT_PATH}/CheckSonarQubeQualityGate.py ${WORKSPACE} ${env.SONAR_HOST_URL1} || true"
+     sh "python3 ${PYTHON_SCRIPT_PATH}/CheckSonarQubeQualityGate.py ${WORKSPACE} ${SONAR_HOST_URL1} || true"
             }
         }
     }
