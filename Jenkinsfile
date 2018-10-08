@@ -35,5 +35,17 @@ pipeline {
      sh "python3 ${PYTHON_SCRIPT_PATH}/CheckSonarQubeQualityGate.py ${WORKSPACE} ${SONAR_HOST_URL1}"
             }
         }
+
+        stage('----display something------') {
+           steps {
+              echo "Environment:${WORKSPACE}"
+              echo " Code error *****"
+
+            }
+
+        }
+
+
+
     }
 }
