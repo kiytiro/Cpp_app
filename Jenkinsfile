@@ -30,20 +30,8 @@ pipeline {
                 echo "Sonar URL:${SONAR_HOST_URL}"
                 echo "Environment:${WORKSPACE}"
               }
-     sh "python3 ${PYTHON_SCRIPT_PATH}/CheckSonarQubeQualityGate.py ${WORKSPACE} ${SONAR_HOST_URL} || true"
+              sh "python3 ${PYTHON_SCRIPT_PATH}/CheckSonarQubeQualityGate.py ${WORKSPACE} ${SONAR_HOST_URL} || true"
             }
         }
-
-       stage('----test error code-----') {
-            steps {
-
-               echo "Sonar URL:${TEST_ERROR_MKK}"
-                echo "Environment:${WORKSPACE}"
-
-            }
-        }
-
-
-
     }
 }
