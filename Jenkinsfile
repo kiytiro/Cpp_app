@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        SONAR_HOST_URL1 = 'http://localhost:9000'
+  //      SONAR_HOST_URL1 = 'http://localhost:9000'
         SONAR_PATH = '/home/labuser/devOPS/sonar-scanner-3.2.0.1227-linux'
         BUILD_WRAPPER = '/home/labuser/devOPS/build-wrapper-3.10/linux-x86-64'
         PYTHON_SCRIPT_PATH = '/home/labuser/pythonScripts'
@@ -26,14 +26,12 @@ pipeline {
                script {
                 def props = readProperties file:"${env.SONAR_PATH}/conf/sonar-scanner.properties"
 
-                def SONAR_HOST_URL = props['sonar.host.url']
-env.TEST = props['sonar.host.url']
-env.SONAR_HOST_URL1 =  props['sonar.host.url']
-                echo "Sonar URL:${TEST}"
+                env.SONAR_HOST_URL = props['sonar.host.url']
+                echo "Sonar URL:${SONAR_HOST_URL}"
                 echo "Environment:${WORKSPACE}"
              //   sh "python3 ${PYTHON_SCRIPT_PATH}/CheckSonarQubeQualityGate.py ${WORKSPACE} ${SONAR_HOST_URL}"
               }
-     sh "python3 ${PYTHON_SCRIPT_PATH}/CheckSonarQubeQualityGate.py ${WORKSPACE} ${SONAR_HOST_URL1} || true"
+     sh "python3 ${PYTHON_SCRIPT_PATH}/CheckSonarQubeQualityGate.py ${WORKSPACE} ${SONAR_HOST_URL} || true"
             }
         }
     }
