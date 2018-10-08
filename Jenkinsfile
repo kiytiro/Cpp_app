@@ -32,7 +32,7 @@ env.TEST = props['sonar.host.url']
                 echo "Environment:${WORKSPACE}"
              //   sh "python3 ${PYTHON_SCRIPT_PATH}/CheckSonarQubeQualityGate.py ${WORKSPACE} ${SONAR_HOST_URL}"
               }
-     sh "python3 ${PYTHON_SCRIPT_PATH}/CheckSonarQubeQualityGate.py ${WORKSPACE} ${SONAR_HOST_URL1} || true"
+     sh "python3 ${PYTHON_SCRIPT_PATH}/CheckSonarQubeQualityGate.py ${WORKSPACE} ${TEST} || true"
             }
         }
     }
