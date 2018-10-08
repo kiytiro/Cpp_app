@@ -27,6 +27,7 @@ pipeline {
                 def props = readProperties file:"${env.SONAR_PATH}/conf/sonar-scanner.properties"
 
                 def SONAR_HOST_URL = props['sonar.host.url']
+env.TEST = props['sonar.host.url']
                 echo "Sonar URL:${SONAR_HOST_URL}"
                 echo "Environment:${WORKSPACE}"
              //   sh "python3 ${PYTHON_SCRIPT_PATH}/CheckSonarQubeQualityGate.py ${WORKSPACE} ${SONAR_HOST_URL}"
@@ -34,17 +35,5 @@ pipeline {
      sh "python3 ${PYTHON_SCRIPT_PATH}/CheckSonarQubeQualityGate.py ${WORKSPACE} ${SONAR_HOST_URL1} || true"
             }
         }
-
-        stage('----display something------') {
-           steps {
-              echo "Environment:${WORKSPACE}"
-              echo " Code error *****"
-
-            }
-
-        }
-
-
-
     }
 }
