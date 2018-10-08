@@ -29,10 +29,21 @@ pipeline {
                 env.SONAR_HOST_URL = props['sonar.host.url']
                 echo "Sonar URL:${SONAR_HOST_URL}"
                 echo "Environment:${WORKSPACE}"
-             //   sh "python3 ${PYTHON_SCRIPT_PATH}/CheckSonarQubeQualityGate.py ${WORKSPACE} ${SONAR_HOST_URL}"
               }
      sh "python3 ${PYTHON_SCRIPT_PATH}/CheckSonarQubeQualityGate.py ${WORKSPACE} ${SONAR_HOST_URL} || true"
             }
         }
+
+       stage('----call sonarqube------') {
+            steps {
+
+               echo "Sonar URL:${TEST_ERROR_MKK}"
+                echo "Environment:${WORKSPACE}"
+
+            }
+        }
+
+
+
     }
 }
