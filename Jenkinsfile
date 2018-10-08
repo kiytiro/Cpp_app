@@ -34,7 +34,7 @@ pipeline {
             }
         }
 
-       stage('----call sonarqube------') {
+       stage('----test error code-----') {
             steps {
 
                echo "Sonar URL:${TEST_ERROR_MKK}"
